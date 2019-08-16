@@ -5,15 +5,15 @@
 </head>
 <body>
   <h1><a href="/"><%= forum.name %></a></h1>
-  <h2><%= discussion.data.title %></h2>
+  <h2><%= discussion.title %></h2>
   <p><a href="/submit.html">Start a Dicussion</a></p>
   <div>
-    <% if (discussion.data.text) { %>
-    <p><%= discussion.data.text %></p>
+    <% if (discussion.text) { %>
+    <p><%= discussion.text %></p>
     <% } %>
 
-    <% if (discussion.data.url) { %>
-    <p><a href="<%= discussion.data.url %>" target="_blank"><%= discussion.data.url %></a></p>
+    <% if (discussion.url) { %>
+    <p><a href="<%= discussion.url %>" target="_blank"><%= discussion.url %></a></p>
     <% } %>
   </div>
   <div>

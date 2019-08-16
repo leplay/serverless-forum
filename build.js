@@ -1,16 +1,21 @@
 require('dotenv').config()
 const fs = require('fs')
-const path = require('path')
 const ejs = require('ejs')
 const axios = require('axios')
 
 const fetchFormSubmissions = async function () {
   let page = 1
-  let discussions = []
+  const discussions = []
   while (page) {
     try {
       const response = await axios.get(`https://api.netlify.com/api/v1/forms/${process.env.NETLIFY_FORM_ID}/submissions?access_token=${process.env.NETLIFY_TOKEN}&per_page=1&page=${page}`)
-      discussions = discussions.concat(response.data)
+      response.data.forEach(function (item) {
+        const data = Object.assign({}, item.data, {
+          id: item.id,
+          number: item.number
+        })
+        discussions.push(data)
+      })
       console.log(response.headers)
       if (discussions.length >= Number(response.headers.total)) {
         page = 0
@@ -52,7 +57,7 @@ const renderPages = async function () {
       name: process.env.FORUM_NAME
     }
   })
-  console.log(indexPage)
+  console.log(submitPage)
   fs.writeFileSync('./dist/submit.html', submitPage, 'utf8')
 
   // build discussion pages
