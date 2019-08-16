@@ -1,0 +1,17 @@
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title><%= forum.name %></title>
+</head>
+<body>
+  <h1><%= forum.name %></h1>
+  <h2><%= discussion.title %></h2>
+  <p><a href="/new">Start a Dicussion</a></p>
+  <div>
+    <h3><%= discussion.body %></h3>
+  </div>
+  <div>
+    <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="<%= discussBot.siteId %>" data-limit="<%= discussBot.limit %>" data-outlined="1"></script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "serverless-forum",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "build": "node build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "leplay <leqcany@gmail.com> (https://github.com/leplay)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.2"
+  }
+}

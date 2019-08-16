@@ -1,0 +1,16 @@
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title><%= forum.name %></title>
+</head>
+<body>
+  <h1><%= forum.name %></h1>
+  <h2><%= discussions.length %> discussions</h2>
+  <p><a href="/new">Start a Dicussion</a></p>
+  <ul>
+    <% discussions.forEach(function(discussion){ %>
+      <li><a href="/d/<%= discussion.number %>.html"><%= discussion.title %></a></li>
+    <% }); %>
+  </ul>
+</body>
+</html>
