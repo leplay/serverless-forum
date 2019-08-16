@@ -1,0 +1,28 @@
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title><%= forum.name %></title>
+</head>
+<body>
+  <h1><a href="/"><%= forum.name %></a></h1>
+  <h2>Start a Dicussion</h2>
+
+  <form name="discussion" netlify>
+    <p>
+      <label>Your Name <input type="text" name="name" /></label>
+    </p>
+    <p>
+      <label>Title <input type="text" name="title" /></label>
+    </p>
+    <p>
+      <label>Text: <textarea name="text"></textarea></label>
+    </p>
+    <p>
+      <label>Url <input type="text" name="url" /></label>
+    </p>
+    <p>
+      <button type="submit">Submit</button>
+    </p>
+  </form>
+</body>
+</html>

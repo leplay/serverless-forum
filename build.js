@@ -28,9 +28,14 @@ const fetchFormSubmissions = async function () {
 
 const renderPages = async function () {
   const discussions = await fetchFormSubmissions()
-  const indexPageString = fs.readFileSync('./templates/index.html.ejs', 'utf-8')
+
+  const discussionDir = './dist/d'
+  if (!fs.existsSync(discussionDir)) {
+    fs.mkdirSync(discussionDir, { recursive: true })
+  }
 
   // build index.html
+  const indexPageString = fs.readFileSync('./templates/index.html.ejs', 'utf-8')
   const indexPage = ejs.render(indexPageString, {
     forum: {
       name: process.env.FORUM_NAME
@@ -40,11 +45,17 @@ const renderPages = async function () {
   console.log(indexPage)
   fs.writeFileSync('./dist/index.html', indexPage, 'utf8')
 
+  // build submit.html
+  const submitPageString = fs.readFileSync('./templates/submit.html.ejs', 'utf-8')
+  const submitPage = ejs.render(submitPageString, {
+    forum: {
+      name: process.env.FORUM_NAME
+    }
+  })
+  console.log(indexPage)
+  fs.writeFileSync('./dist/submit.html', submitPage, 'utf8')
+
   // build discussion pages
-  const discussionDir = './dist/d'
-  if (!fs.existsSync(discussionDir)) {
-    fs.mkdirSync(discussionDir, { recursive: true })
-  }
   const discussionPageString = fs.readFileSync('./templates/discussion.html.ejs', 'utf-8')
   discussions.forEach(function (discussion) {
     const discussionPage = ejs.render(discussionPageString, {
