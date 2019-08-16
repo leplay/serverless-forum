@@ -4,11 +4,17 @@
   <title><%= forum.name %></title>
 </head>
 <body>
-  <h1><%= forum.name %></h1>
-  <h2><%= discussion.title %></h2>
+  <h1><a href="/"><%= forum.name %></a></h1>
+  <h2><%= discussion.data.title %></h2>
   <p><a href="/submit.html">Start a Dicussion</a></p>
   <div>
-    <h3><%= discussion.body %></h3>
+    <% if (discussion.data.text) { %>
+    <p><%= discussion.data.text %></p>
+    <% } %>
+
+    <% if (discussion.data.url) { %>
+    <p><a href="<%= discussion.data.url %>" target="_blank"><%= discussion.data.url %></a></p>
+    <% } %>
   </div>
   <div>
     <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="<%= discussBot.siteId %>" data-limit="<%= discussBot.limit %>" data-outlined="1"></script>
