@@ -24,6 +24,7 @@ const fetchFormSubmissions = async function () {
       }
     } catch (error) {
       console.error(error)
+      page = 0
     }
   }
 
