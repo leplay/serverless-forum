@@ -9,7 +9,7 @@
   "author": "leplay <leqcany@gmail.com> (https://github.com/leplay)",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "dotenv": "^8.0.0",
     "ejs": "^2.6.2"
   }
